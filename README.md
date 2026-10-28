@@ -58,3 +58,14 @@ The project answers several complex business briefs through optimized SQL queryi
 1. Open **SQL Server Management Studio (SSMS)**.
 2. Execute the scripts in numerical order (`01` -> `02` -> `03`) against your local SQL Server instance.
 3. Ensure your raw source table (`steam_2025_RawData`) is loaded before executing Phase 1.
+
+---
+
+## 🔮 Future Improvements & Scalability
+
+This pipeline was built as an exploratory and analytical baseline in SQL Server Management Studio. For production deployment at scale, key optimizations would include:
+
+* **Automated Data Quality & Error Handling:** Transitioning from row-deletion to a dedicated Dead Letter Queue / Error Audit table to retain corrupt records for ingestion monitoring.
+* **Pipeline Idempotency:** Implementing `IF OBJECT_ID ... DROP TABLE` or `TRUNCATE` workflows to ensure execution scripts are fully re-runnable without manual cleanup.
+* **Indexing & Performance Tuning:** Adding clustered/non-clustered indexes on surrogate keys (`game_id`, `appid`) to optimize query execution plans across multi-table joins.
+* **Normalized Array Parsing:** Utilizing SQL JSON parsing tools or cross-apply logic to unpack list-string fields (like `genres` and `developers`) into formal bridge tables.
