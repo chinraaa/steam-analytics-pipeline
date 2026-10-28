@@ -1,0 +1,4 @@
+https://www.kaggle.com/datasets/artermiloff/steam-games-dataset
+
+
+we used the games_march2025_full.csv file, feel free to use the 2024 full one not the cleanest because you can't practice cleaning in it .
